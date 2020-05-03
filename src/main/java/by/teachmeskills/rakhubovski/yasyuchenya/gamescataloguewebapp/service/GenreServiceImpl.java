@@ -15,12 +15,17 @@ public class GenreServiceImpl implements GenreService{
     @Override
     public List<Genre> getGenres() {
         List<Genre> genresList = genreRepository.getGenre();
-        System.out.println("Internal application service logic");
+
         return genresList;
     }
 
     @Override
     public Genre addGenre(Genre genre) {
         return genre;
+    }
+
+    @Override
+    public void removeGenre(Genre genre) {
+
     }
 }

@@ -10,6 +10,8 @@ public class GenreRepositoryImpl implements GenreRepository {
 
     private final String getGenresQuery = "Select * from genres";
     private final String addGenreQuery = "INSERT INTO genres (name) VALUES (?)";
+    private final String removeGenreQuery = "DELETE FROM genres WHERE genre_id (?)";
+
 
     @Override
     public List<Genre> getGenre() {
@@ -46,6 +48,19 @@ public class GenreRepositoryImpl implements GenreRepository {
         return genre;
     }
 
+    @Override
+    public void removeGenre(Genre genre) {
+        try {
+            Connection conn = DBUtils.connection();
+            PreparedStatement prst = conn.prepareStatement(removeGenreQuery);
+            prst.setString(1, String.valueOf(genre.getId()));
+            prst.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
     private List<Genre> createGenreList (ResultSet rs) throws SQLException {
         List<Genre> genresList = new ArrayList<>();
         while (rs.next()) {
@@ -56,10 +71,11 @@ public class GenreRepositoryImpl implements GenreRepository {
 
     private Genre createGenre(ResultSet rs) throws SQLException {
         Genre genre = new Genre();
-
         genre.setId(rs.getLong(1));
         genre.setName(rs.getString(2));
 
         return genre;
     }
+
+
 }

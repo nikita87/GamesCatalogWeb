@@ -10,7 +10,7 @@ import java.util.List;
 
 public class PcGameRepositoryImpl implements PcGameRepository {
 
-    private final String getPcGamesQuery = "Select * from games_catalogue";
+    private final String getPcGamesQuery = "Select * from games";
     private final String addPcGamesQuery = "INSERT INTO games (title, release_year, description) VALUES (?, ?, ?)";
     private final String addPriceCurrencyGameQuery = "INSERT INTO currency (currency_name) VALUES (?)";
     private final String addPriceValueGameQuery = "INSERT INTO game_currency_price (price) VALUES (?)";
@@ -70,11 +70,10 @@ public class PcGameRepositoryImpl implements PcGameRepository {
 
         pcGame.setId(rs.getLong(1));
         pcGame.setTitle(rs.getString(2));
-        pcGame.setGenre((Genre) rs.getObject(3));
-        pcGame.setYear(rs.getString(4));
-        pcGame.setPublisher((Publisher) rs.getObject(5));
-        pcGame.setDescription(rs.getString(6));
-        pcGame.setPrice(rs.getObject(7));
+        pcGame.setYear(rs.getString(3));
+        pcGame.setDescription(rs.getString(4));
+        pcGame.getPrice().setValue(rs.getDouble(5));
+        pcGame.getPrice().setCurrency(rs.getString(6));
 
         return pcGame;
     }

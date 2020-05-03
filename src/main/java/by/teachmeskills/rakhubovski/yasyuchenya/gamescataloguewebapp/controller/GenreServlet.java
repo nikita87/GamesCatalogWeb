@@ -26,7 +26,7 @@ public class GenreServlet extends HttpServlet {
         List<Genre> genres = genreService.getGenres();
         req.setAttribute("genres", genres);
         try {
-            getServletContext().getRequestDispatcher("/pcGame.jsp").forward(req, resp);
+            getServletContext().getRequestDispatcher("/genre.jsp").forward(req, resp);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {

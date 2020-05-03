@@ -17,7 +17,6 @@ public class PublisherServiceImpl implements PublisherService {
     @Override
     public List<Publisher> getPublishers() {
         List<Publisher> publishersList = publisherRepository.getPublisher();
-        System.out.println("Internal application service logic");
         return publishersList;
     }
 

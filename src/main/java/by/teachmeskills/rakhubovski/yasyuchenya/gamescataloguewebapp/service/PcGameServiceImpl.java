@@ -16,7 +16,6 @@ import java.util.List;
         @Override
         public List<PcGame> getPcGames() {
             List<PcGame> pcGamesList = pcGameRepository.getPcGame();
-            System.out.println("Internal application service logic");
             return pcGamesList;
         }
 

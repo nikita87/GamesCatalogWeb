@@ -18,7 +18,7 @@
         <li><c: value="${publisher.name}"/></li>
     </c:forEach>--%>
 
-    <form action="publishers" method="POST">
+    <form action="gamescatalogue/publishers" method="POST">
         Name:
         <input name="name"/>
         <br><br>
@@ -26,7 +26,7 @@
         <input name="country"/>
         <br><br>
 
-        <input type="Add" value="Add">
+        <input type="button" value="Add">
     </form>
 </body>
 </html>

@@ -8,4 +8,6 @@ public interface GenreRepository {
     List<Genre> getGenre();
 
     Genre addGenre(Genre genre);
+
+    void removeGenre(Genre genre);
 }

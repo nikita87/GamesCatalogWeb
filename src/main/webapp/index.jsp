@@ -9,5 +9,6 @@
     <body>
         <h2><%= header %></h2>
         <p>Today <%= new java.util.Date()%></p>
+
     </body>
 </html>

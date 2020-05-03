@@ -9,4 +9,6 @@ public interface GenreService {
 
     Genre addGenre(Genre genre);
 
+    void removeGenre(Genre genre);
+
 }
